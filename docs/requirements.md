@@ -1,42 +1,41 @@
-# Midterm requirement checklist
+# Проверка перед сдачей
 
-Source: the six-page **Midterm Project (Python fall 2026).pdf** supplied by the
-student. This file records assignment requirements; it is not the final report.
+Чек-лист основан на ранее записанных требованиях к Midterm Project (Python fall
+2026). Исходного PDF в репозитории нет; точные условия и сроки нужно сверить
+с заданием преподавателя.
 
-| Assignment requirement | Implementation / status |
+| Пункт | Где реализован / что осталось |
 | --- | --- |
-| Console Python application; conditions, loops, functions, input/output | `main.py` and operations in `airline.py` |
-| At least two meaningful classes | `Database` and `AirlineSystem` |
-| SQLite with at least three related tables | Flights and passengers linked through tickets; foreign keys enabled |
-| Add and save records | Add submenu for all three tables |
-| Clearly display main records | Aligned flight, passenger, and joined ticket tables |
-| Total ticket revenue | Sum of stored active ticket prices |
-| Seat occupancy rate | Active tickets / total flight seats × 100 |
-| At least two searches; message for no matches | Passenger name/ID, flight destination; `No records found.` |
-| Update and delete/cancel; CRUD | All three record types; ticket deletion is cancellation |
-| File handling and `results.txt` or `results.csv` | UTF-8 `results.txt` with main records and calculations |
-| Appropriate input validation | Required text, integer input, `re` formats, calendar validation, booking and relationship checks |
-| At least TWO selected additional features | `re` for validation; `random` for sample data |
-| 20 flights, 50 passengers, 40 tickets | `Database.seed()` generates these counts in an empty database; actual database must be submitted |
-| Menu repeats until Exit | Main `while` loop, option `0` |
-| Team of three | Proposed file ownership in `CONTRIBUTING.md`; actual names/contributions still needed |
-| Report PDF, 3–5 pages | Still to prepare: title/team, description, schema, functions/classes, screenshots, results, contributions |
-| Mandatory presentation, about 5–7 slides | Still to prepare: objective, schema, functions, results, contributions |
-| ZIP containing program, database, export, report, presentation | Still to assemble as `GroupID_AirlineReservation.zip`; include imported Python modules too |
-| Submission through TEAMS | Student action, by October 18, 2026, 23:59 |
-| Defense October 19–21, 2026 | Every student participates, demonstrates features, and explains code / the two extra features |
+| Консоль, условия, циклы, функции, ввод и вывод | `main.py` |
+| Два содержательных класса | `Database`, `AirlineSystem` |
+| SQLite, три связанные таблицы | `flights`, `passengers`, `tickets` |
+| Добавление, просмотр, изменение, удаление | Пункты 1, 2, 4, 5 для всех типов записей |
+| Два поиска и сообщение при отсутствии результата | Имя/ID пассажира, город назначения; пункт 3 |
+| Выручка и заполняемость | Пункт 6, `statistics()` |
+| Файловый отчёт | Пункт 7, `export_results()` |
+| Проверка ввода | Форматы, календарь, положительные числа, связи и конфликты |
+| Две дополнительные возможности | `re` и `random` |
+| 20 рейсов, 50 пассажиров, 40 билетов | Генерируются для пустой базы; проверить в итоговой базе |
+| Повтор меню до выхода | Цикл в `main()`, выход через 0 |
+| Командный вклад | Вписать настоящие имена и выполненную работу |
+| PDF-отчёт, 3–5 страниц | Подготовить: команда, задача, схема, код, скриншоты, результаты |
+| Презентация, около 5–7 слайдов | Подготовить по фактической реализации |
+| Итоговый ZIP | Собрать код, базу, текстовый отчёт, PDF и презентацию |
 
-## Suggested defense demonstration
+В прежней записи задания указаны сдача 18 октября 2026 года до 23:59
+и защита 19–21 октября. Это не подтверждённые заново сроки.
 
-1. Show the schema and explain how tickets connect flights and passengers.
-2. Display the initial 20/50/40 dataset and both calculations.
-3. Add a flight and a passenger, then book a seat for that passenger.
-4. Show how an occupied seat and a duplicate booking are rejected.
-5. Search by passenger name/ID and by destination; show a search with no matches.
-6. Update the passenger and ticket, and explain the stored booking price.
-7. Cancel the ticket, then delete the new passenger and flight.
-8. Export and open `results.txt`; explain overall and per-flight occupancy.
-9. Explain `re`, `random`, both classes, and each teammate's actual contribution.
+## Содержимое архива
 
-Do the destructive demonstration on a copy of the database or preserve the
-required dataset minimums before preparing the final submission.
+Имя: `GroupID_AirlineReservation.zip`, где `GroupID` — ваша группа.
+
+- `main.py`, `database.py`, `airline.py`;
+- `project.db` с нужным количеством записей;
+- `results.txt`, экспортированный из этой базы;
+- `ProjectReport.pdf`;
+- `ProjectPresentation.pptx`.
+
+Перед упаковкой запустите тесты, пройдите демонстрацию из
+[defense.md](defense.md), затем проверьте запуск из распакованного архива.
+Сдаваемая папка не должна содержать `.git`, виртуальное окружение,
+`__pycache__` и базы репетиций.
