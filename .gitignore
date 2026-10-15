@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+project.db
+project.db-journal
+project.db-wal
+project.db-shm
+results.txt
+*.zip
