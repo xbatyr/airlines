@@ -7,11 +7,13 @@ class AirlineSystem:
     def __init__(self, database):
         self.database = database
 
+    # validate a positive integer
     def positive_integer(self, value, label):
         if type(value) is not int or value <= 0:
             raise ValueError(f"{label} must be a positive whole number.")
         return value
 
+    # validate required text; label identifies the field in errors
     def required_text(self, value, label):
         if not isinstance(value, str):
             raise ValueError(f"{label} must be text.")
@@ -24,6 +26,7 @@ class AirlineSystem:
             )
         return value
 
+    # find a record by ID or raise an error
     def get_record(self, table, record_id):
         if table not in ("flights", "passengers", "tickets"):
             raise ValueError("Unknown record type.")
@@ -33,6 +36,7 @@ class AirlineSystem:
             raise ValueError("Record not found.")
         return rows[0]
 
+    # validate and normalize flight details
     def flight_values(self, number, origin, destination, departure, seats, price):
         number = self.required_text(number, "Flight number").upper()
         if not re.fullmatch(r"[A-Z]{2}[0-9]{3,4}", number):
@@ -52,6 +56,7 @@ class AirlineSystem:
         self.positive_integer(price, "Price")
         return number, origin, destination, departure, seats, price
 
+    # validate the name and email
     def passenger_values(self, name, email):
         name = self.required_text(name, "Name")
         email = self.required_text(email, "Email").lower()
@@ -75,12 +80,14 @@ class AirlineSystem:
             "INSERT INTO passengers (name, email) VALUES (?, ?)", values
         )
 
+    # check references, seat range and booking conflicts
     def check_booking(self, flight_id, passenger_id, seat, ticket_id=0):
         flight = self.get_record("flights", flight_id)
         self.get_record("passengers", passenger_id)
         self.positive_integer(seat, "Seat")
         if seat > flight["seats"]:
             raise ValueError(f"Seat must be between 1 and {flight['seats']}.")
+        # exclude the current ticket when updating a booking
         matches = self.database.fetch(
             """SELECT seat FROM tickets
                WHERE flight_id = ? AND id != ? AND (seat = ? OR passenger_id = ?)""",
@@ -100,6 +107,7 @@ class AirlineSystem:
         return [row["seat"] for row in rows]
 
     def add_ticket(self, flight_id, passenger_id, seat):
+        # save the current flight price with the ticket
         flight = self.check_booking(flight_id, passenger_id, seat)
         return self.database.execute(
             """INSERT INTO tickets (flight_id, passenger_id, seat, price)
@@ -107,6 +115,7 @@ class AirlineSystem:
             (flight_id, passenger_id, seat, flight["price"]),
         )
 
+    # include flights without tickets and count booked seats
     def list_flights(self):
         return self.database.fetch(
             """SELECT f.*, COUNT(t.id) AS booked FROM flights f
@@ -117,6 +126,7 @@ class AirlineSystem:
     def list_passengers(self):
         return self.database.fetch("SELECT * FROM passengers ORDER BY id")
 
+    # join tickets with flight and passenger details
     def list_tickets(self):
         return self.database.fetch(
             """SELECT t.id, t.flight_id, f.number AS flight, f.destination,
@@ -127,6 +137,7 @@ class AirlineSystem:
                ORDER BY t.id"""
         )
 
+    # search by exact ID or part of a name, ignoring case
     def search_passengers(self, query):
         query = self.required_text(query, "Search")
         return self.database.fetch(
@@ -136,6 +147,7 @@ class AirlineSystem:
             (query, query),
         )
 
+    # search by destination, ignoring case
     def search_flights(self, destination):
         destination = self.required_text(destination, "Destination")
         return self.database.fetch(
@@ -146,6 +158,7 @@ class AirlineSystem:
             (destination,),
         )
 
+    # update flight details without invalidating booked seats
     def update_flight(
         self, flight_id, number, origin, destination, departure, seats, price
     ):
@@ -153,6 +166,7 @@ class AirlineSystem:
         values = self.flight_values(
             number, origin, destination, departure, seats, price
         )
+        # capacity must cover the highest booked seat number
         highest_seat = self.database.fetch(
             "SELECT COALESCE(MAX(seat), 0) AS highest FROM tickets WHERE flight_id = ?",
             (flight_id,),
@@ -178,6 +192,7 @@ class AirlineSystem:
     def update_ticket(self, ticket_id, flight_id, passenger_id, seat):
         ticket = self.get_record("tickets", ticket_id)
         flight = self.check_booking(flight_id, passenger_id, seat, ticket_id)
+        # keep the price unless the ticket moves to another flight
         price = ticket["price"] if ticket["flight_id"] == flight_id else flight["price"]
         self.database.execute(
             """UPDATE tickets SET flight_id = ?, passenger_id = ?, seat = ?, price = ?
@@ -185,8 +200,10 @@ class AirlineSystem:
             (flight_id, passenger_id, seat, price, ticket_id),
         )
 
+    # delete a record; deleting a ticket cancels its booking
     def delete_record(self, table, record_id):
         self.get_record(table, record_id)
+        # cancel related tickets before deleting a flight or passenger
         if table in ("flights", "passengers"):
             column = "flight_id" if table == "flights" else "passenger_id"
             if self.database.fetch(
@@ -197,6 +214,7 @@ class AirlineSystem:
                 )
         self.database.execute(f"DELETE FROM {table} WHERE id = ?", (record_id,))
 
+    # calculate revenue and occupancy from active tickets
     def statistics(self):
         flights = self.database.fetch(
             "SELECT COUNT(*) AS total, COALESCE(SUM(seats), 0) AS seats FROM flights"
@@ -229,10 +247,12 @@ class AirlineSystem:
             f"Seat occupancy rate: {stats['occupancy']:.2f}%",
         ]
 
+    # export records and statistics to a text file
     def export_results(self, path=None):
         if path is None:
             path = Path(__file__).parent / "results.txt"
         path = Path(path)
+        # prevent the report from overwriting the database
         database_file = self.database.fetch("PRAGMA database_list")[0]["file"]
         if database_file and path.resolve() == Path(database_file).resolve():
             raise ValueError("The report must not overwrite the database.")
