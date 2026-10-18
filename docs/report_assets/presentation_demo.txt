@@ -1,0 +1,42 @@
+
+AIRLINE RESERVATION SYSTEM
+1. Add information
+2. Display records
+3. Search
+4. Update
+5. Delete or cancel
+6. Show statistics
+7. Export results
+0. Exit
+Choose an option: 1. Flight
+2. Passenger
+3. Ticket
+0. Back
+Choose a record type: Passenger name: Email: Record saved. ID: 52
+
+AIRLINE RESERVATION SYSTEM
+1. Add information
+2. Display records
+3. Search
+4. Update
+5. Delete or cancel
+6. Show statistics
+7. Export results
+0. Exit
+Choose an option: 1. Passenger by name or ID
+2. Flights by destination
+0. Back
+Choose a search: Passenger name or ID: ID |        NAME       |             EMAIL            
+---+-------------------+------------------------------
+52 | Presentation Demo | presentation-demo@example.com
+
+AIRLINE RESERVATION SYSTEM
+1. Add information
+2. Display records
+3. Search
+4. Update
+5. Delete or cancel
+6. Show statistics
+7. Export results
+0. Exit
+Choose an option: Goodbye!

@@ -1,0 +1,7 @@
+AIRLINE RESERVATION SYSTEM
+Flights: 20
+Passengers: 50
+Active tickets: 41
+Total seats: 1511
+Total ticket revenue: 2449000 KZT
+Seat occupancy rate: 2.71%

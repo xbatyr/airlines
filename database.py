@@ -11,7 +11,7 @@ class Database:
         self.connection.row_factory = sqlite3.Row
         try:
             self.connection.execute("PRAGMA foreign_keys = ON")
-            # SQLite lower() only handles ASCII letters.
+            # SQLite lower() only handles ASCII letters
             self.connection.create_function("casefold", 1, str.casefold)
             self.create_tables()
         except sqlite3.Error:
@@ -93,19 +93,18 @@ class Database:
                 seats = generator.randint(50, 100)
                 price = generator.randrange(20000, 100001, 1000)
                 departure = f"2026-11-{index + 1:02d} 10:00"
-                self.connection.execute(
-                    """INSERT INTO flights
+                query = """INSERT INTO flights
                        (number, origin, destination, departure, seats, price)
-                       VALUES (?, ?, ?, ?, ?, ?)""",
-                    (
+                       VALUES (?, ?, ?, ?, ?, ?)"""
+                params = (
                         f"KC{100 + index}",
                         "Almaty",
                         cities[index % len(cities)],
                         departure,
                         seats,
                         price,
-                    ),
-                )
+                    )
+                self.connection.execute(query, params)
             for index in range(50):
                 name = f"{first_names[index % 10]} {last_names[index // 10]}"
                 email = f"passenger{index + 1}@example.com"

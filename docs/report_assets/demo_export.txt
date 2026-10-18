@@ -1,0 +1,127 @@
+AIRLINE RESERVATION SYSTEM
+Flights: 20
+Passengers: 51
+Active tickets: 41
+Total seats: 1511
+Total ticket revenue: 2449000 KZT
+Seat occupancy rate: 2.71%
+Revenue counts active tickets; cancelling a ticket removes its price from the total.
+Occupancy = active tickets / total flight seats * 100.
+
+FLIGHTS
+1 | KC124 | Astana -> Almaty | 2026-11-05 13:00 | 3/70 seats | 4.29% | 85000 KZT
+2 | KC101 | Almaty -> Shymkent | 2026-11-02 10:00 | 2/92 seats | 2.17% | 46000 KZT
+3 | KC102 | Almaty -> Aktau | 2026-11-03 10:00 | 2/77 seats | 2.60% | 96000 KZT
+4 | KC103 | Almaty -> Atyrau | 2026-11-04 10:00 | 2/84 seats | 2.38% | 27000 KZT
+5 | KC104 | Almaty -> London | 2026-11-05 10:00 | 2/58 seats | 3.45% | 81000 KZT
+6 | KC105 | Almaty -> Istanbul | 2026-11-06 10:00 | 2/52 seats | 3.85% | 99000 KZT
+7 | KC106 | Almaty -> Seoul | 2026-11-07 10:00 | 2/82 seats | 2.44% | 41000 KZT
+8 | KC107 | Almaty -> Dubai | 2026-11-08 10:00 | 2/90 seats | 2.22% | 74000 KZT
+9 | KC108 | Almaty -> Tashkent | 2026-11-09 10:00 | 2/65 seats | 3.08% | 72000 KZT
+10 | KC109 | Almaty -> Bishkek | 2026-11-10 10:00 | 2/95 seats | 2.11% | 45000 KZT
+11 | KC110 | Almaty -> Astana | 2026-11-11 10:00 | 2/100 seats | 2.00% | 23000 KZT
+12 | KC111 | Almaty -> Shymkent | 2026-11-12 10:00 | 2/92 seats | 2.17% | 48000 KZT
+13 | KC112 | Almaty -> Aktau | 2026-11-13 10:00 | 2/59 seats | 3.39% | 36000 KZT
+14 | KC113 | Almaty -> Atyrau | 2026-11-14 10:00 | 2/63 seats | 3.17% | 96000 KZT
+15 | KC114 | Almaty -> London | 2026-11-15 10:00 | 2/80 seats | 2.50% | 69000 KZT
+16 | KC115 | Almaty -> Istanbul | 2026-11-16 10:00 | 2/73 seats | 2.74% | 51000 KZT
+17 | KC116 | Almaty -> Seoul | 2026-11-17 10:00 | 2/87 seats | 2.30% | 23000 KZT
+18 | KC117 | Almaty -> Dubai | 2026-11-18 10:00 | 2/51 seats | 3.92% | 57000 KZT
+19 | KC118 | Almaty -> Tashkent | 2026-11-19 10:00 | 2/84 seats | 2.38% | 88000 KZT
+20 | KC119 | Almaty -> Bishkek | 2026-11-20 10:00 | 2/57 seats | 3.51% | 85000 KZT
+
+PASSENGERS
+1 | Alex Brown | passenger1@example.com
+2 | Sam Brown | passenger2@example.com
+3 | Dana Brown | passenger3@example.com
+4 | Amir Brown | passenger4@example.com
+5 | Aida Brown | passenger5@example.com
+6 | Maria Brown | passenger6@example.com
+7 | John Brown | passenger7@example.com
+8 | Sara Brown | passenger8@example.com
+9 | Ali Brown | passenger9@example.com
+10 | Anna Brown | passenger10@example.com
+11 | Alex Lee | passenger11@example.com
+12 | Sam Lee | passenger12@example.com
+13 | Dana Lee | passenger13@example.com
+14 | Amir Lee | passenger14@example.com
+15 | Aida Lee | passenger15@example.com
+16 | Maria Lee | passenger16@example.com
+17 | John Lee | passenger17@example.com
+18 | Sara Lee | passenger18@example.com
+19 | Ali Lee | passenger19@example.com
+20 | Anna Lee | passenger20@example.com
+21 | Alex Smith | passenger21@example.com
+22 | Sam Smith | passenger22@example.com
+23 | Dana Smith | passenger23@example.com
+24 | Amir Smith | passenger24@example.com
+25 | Aida Smith | passenger25@example.com
+26 | Maria Smith | passenger26@example.com
+27 | John Smith | passenger27@example.com
+28 | Sara Smith | passenger28@example.com
+29 | Ali Smith | passenger29@example.com
+30 | Anna Smith | passenger30@example.com
+31 | Alex Wilson | passenger31@example.com
+32 | Sam Wilson | passenger32@example.com
+33 | Dana Wilson | passenger33@example.com
+34 | Amir Wilson | passenger34@example.com
+35 | Aida Wilson | passenger35@example.com
+36 | Maria Wilson | passenger36@example.com
+37 | John Wilson | passenger37@example.com
+38 | Sara Wilson | passenger38@example.com
+39 | Ali Wilson | passenger39@example.com
+40 | Anna Wilson | passenger40@example.com
+41 | Alex Taylor | passenger41@example.com
+42 | Sam Taylor | passenger42@example.com
+43 | Dana Taylor | passenger43@example.com
+44 | Amir Taylor | passenger44@example.com
+45 | Aida Taylor | passenger45@example.com
+46 | Maria Taylor | passenger46@example.com
+47 | John Taylor | passenger47@example.com
+48 | Sara Taylor | passenger48@example.com
+49 | Ali Taylor | passenger49@example.com
+50 | Anna Taylor | passenger50@example.com
+51 | Report Demo Student | report-demo@example.com
+
+TICKETS
+1 | KC124 | Dana Brown | seat 1 | 45000 KZT
+2 | KC101 | Sam Taylor | seat 1 | 46000 KZT
+3 | KC102 | Alex Brown | seat 1 | 96000 KZT
+4 | KC103 | Anna Smith | seat 1 | 27000 KZT
+5 | KC104 | Ali Wilson | seat 1 | 81000 KZT
+6 | KC105 | Dana Taylor | seat 1 | 99000 KZT
+7 | KC106 | Maria Wilson | seat 1 | 41000 KZT
+8 | KC107 | Alex Smith | seat 1 | 74000 KZT
+9 | KC108 | Aida Taylor | seat 1 | 72000 KZT
+10 | KC109 | Sara Smith | seat 1 | 45000 KZT
+11 | KC110 | Alex Taylor | seat 1 | 23000 KZT
+12 | KC111 | Dana Lee | seat 1 | 48000 KZT
+13 | KC112 | Amir Brown | seat 1 | 36000 KZT
+14 | KC113 | John Lee | seat 1 | 96000 KZT
+15 | KC114 | Maria Taylor | seat 1 | 69000 KZT
+16 | KC115 | Aida Smith | seat 1 | 51000 KZT
+17 | KC116 | Anna Wilson | seat 1 | 23000 KZT
+18 | KC117 | Anna Brown | seat 1 | 57000 KZT
+19 | KC118 | Sara Wilson | seat 1 | 88000 KZT
+20 | KC119 | Sam Wilson | seat 1 | 85000 KZT
+21 | KC124 | Anna Taylor | seat 2 | 45000 KZT
+22 | KC101 | Aida Brown | seat 2 | 46000 KZT
+23 | KC102 | Sara Lee | seat 2 | 96000 KZT
+24 | KC103 | Amir Wilson | seat 2 | 27000 KZT
+25 | KC104 | Dana Smith | seat 2 | 81000 KZT
+26 | KC105 | Aida Wilson | seat 2 | 99000 KZT
+27 | KC106 | Sam Brown | seat 2 | 41000 KZT
+28 | KC107 | Amir Smith | seat 2 | 74000 KZT
+29 | KC108 | Amir Lee | seat 2 | 72000 KZT
+30 | KC109 | John Brown | seat 2 | 45000 KZT
+31 | KC110 | Sam Lee | seat 2 | 23000 KZT
+32 | KC111 | John Taylor | seat 2 | 48000 KZT
+33 | KC112 | John Smith | seat 2 | 36000 KZT
+34 | KC113 | Alex Lee | seat 2 | 96000 KZT
+35 | KC114 | Alex Wilson | seat 2 | 69000 KZT
+36 | KC115 | Ali Taylor | seat 2 | 51000 KZT
+37 | KC116 | Amir Taylor | seat 2 | 23000 KZT
+38 | KC117 | Sara Taylor | seat 2 | 57000 KZT
+39 | KC118 | Aida Lee | seat 2 | 88000 KZT
+40 | KC119 | Sara Brown | seat 2 | 85000 KZT
+41 | KC124 | Amir Lee | seat 3 | 45000 KZT

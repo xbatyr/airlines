@@ -10,8 +10,6 @@ class AirlineSystem:
     def positive_integer(self, value, label):
         if type(value) is not int or value <= 0:
             raise ValueError(f"{label} must be a positive whole number.")
-        if value > 9223372036854775807:
-            raise ValueError(f"{label} is too large for the database.")
         return value
 
     def required_text(self, value, label):

@@ -1,0 +1,17 @@
+{
+  "group": "",
+  "members": [
+    {
+      "name": "Abduldinov Alibek",
+      "contribution": "Responsible for airline.py: booking rules, input validation, search, statistics and export."
+    },
+    {
+      "name": "Kushekbayev Batyrlan",
+      "contribution": "Responsible for main.py: console menus, user input, table display and error handling."
+    },
+    {
+      "name": "Aben Batyr",
+      "contribution": "Responsible for database.py: SQLite connection, related tables, SQL queries and initial data generation."
+    }
+  ]
+}

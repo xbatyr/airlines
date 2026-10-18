@@ -6,18 +6,18 @@ from airline import AirlineSystem
 from database import Database
 
 
-def read_text(prompt):
+def read_text(text):
     while True:
-        value = input(prompt).strip()
+        value = input(text).strip()
         if value:
             return value
         print("This field cannot be empty.")
 
 
-def read_number(prompt):
+def read_number(number):
     while True:
         try:
-            value = int(input(prompt))
+            value = int(input(number))
             if value > 0:
                 return value
         except ValueError:
@@ -68,7 +68,7 @@ def display_records(rows):
     ]
     print(
         " | ".join(
-            column.upper().ljust(width) for column, width in zip(columns, widths)
+            column.upper().center(width) for column, width in zip(columns, widths)
         )
     )
     print("-+-".join("-" * width for width in widths))

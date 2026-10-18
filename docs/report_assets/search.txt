@@ -1,0 +1,6 @@
+1. Passenger by name or ID
+2. Flights by destination
+0. Back
+Choose a search: Passenger name or ID: ID |    NAME    |         EMAIL         
+---+------------+-----------------------
+1  | Alex Brown | passenger1@example.com
